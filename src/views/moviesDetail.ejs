@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.title %> </title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <h1><%= movie.title %> </h1>    
+    <br>
+    <p>RATING: <%= movie.rating %> </p>
+    <p>AWARDS: <%= movie.awards %> </p>
+    <p>LENGTH: <%= movie.length + ' min'%> </p>
+    <p>RELEASE DATE: <%= movie.release_date %> </p>
+    <p>GENRE: 
+        <%if(movie.genre.name==null){  %>      
+        
+        sin genero
+        
+        <%   }else{ %>
+
+            <%= movie.genre.name %>
+            
+        <% } %>
+    
+    </p> 
+    <p>ACTORS: 
+        <lu>
+            <%   for (let i=0; i<movie.actors.length;i++){ %>
+            </li>
+                <li>
+                    <%= movie.actors[i].first_name %> <%= movie.actors[i].last_name %>
+                </li>
+            <%   }   %>
+ 
+        </lu>
+    </p>     
+    <br>
+    <section>
+        <form action="/movies/edit/<%=movie.id%>" method="GET">
+            <button class="botonEditar" type="submit">Editar</button>
+        </form>
+        <form action="/movies/delete/<%=movie.id%>" method="GET">
+            <button class="botonBorrar" type="submit">Borrar</button>
+        </form>
+        <a href="/movies">
+            <button class="botonVolver" = >Listado de Películas</button>
+        </a>
+    </p>
+        </section>
+    </body>
+    </html>
