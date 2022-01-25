@@ -18,15 +18,11 @@
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
     <p>GENRE: 
-        <%if(movie.genre.name==null){  %>      
+        <%if(movie.genre.name){  %>      
         
-        sin genero
+        <%= movie.genre.name %> 
         
-        <%   }else{ %>
-
-            <%= movie.genre.name %>
-            
-        <% } %>
+        <%   } %>
     
     </p> 
     <p>ACTORS: 

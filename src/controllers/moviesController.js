@@ -21,13 +21,15 @@ const moviesController = {
                 res.render('moviesList.ejs', {movies})
             })
     },
-    detail: (req, res) => {
+    'detail': (req, res) => {
         db.Movie.findByPk(req.params.id, {
           include: [{ association: "genre" }, { association: "actors" }],
         }).then((movie) => {
           res.render("moviesDetail.ejs", { movie });
         })
-        .catch(error => console.log(error))        ;
+        .catch(function(error){
+            console.log(error);
+        });
 
       },
     
